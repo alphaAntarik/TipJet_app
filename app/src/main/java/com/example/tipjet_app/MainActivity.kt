@@ -212,13 +212,16 @@ fun BillForm(modifier: Modifier=Modifier, onValChange: (String) -> Unit={}){
                InputField(valueState = tip, labelId = "Enter tip", enabled = true , isSingledLined = true,   onAction = KeyboardActions{
                    if(!isValidState1)return@KeyboardActions
 
-
-
-                   onValChange(((totalBillState.value.toDouble() + tip.value.toDouble())/count.value).toString())
-
                    textController1?.hide()
 
                })
+               Button(
+                   onClick = {  onValChange(((totalBillState.value.toDouble() + tip.value.toDouble())/count.value).toString())
+                   },
+                   modifier = Modifier.align(Alignment.CenterHorizontally)
+               ) {
+                   Text("Check")
+               }
 
 
 
